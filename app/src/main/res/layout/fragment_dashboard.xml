@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.Dashboard">
+
+    <ProgressBar
+            android:id="@+id/myProgress"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@+id/dateText"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/graphLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
+
+    <TextView
+            android:id="@+id/dateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="start"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
+
+    <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/dateText"
+            app:layout_constraintEnd_toEndOf="@+id/dateText"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/dateText"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:id="@+id/sumText"
+                android:text="@string/amount_spent"
+                android:textColor="@color/colorPrimary"/>
+
+        <ImageView
+                android:src="@drawable/verified"
+                android:layout_width="25dp"
+                android:layout_marginStart="8dp"
+                android:layout_height="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/months"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:weightSum="1">
+
+        <TextView
+                android:id="@+id/month1"
+                android:text="@string/month1"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"/>
+
+        <TextView
+                android:text="@string/month2"
+                android:gravity="center"
+                android:textColor="@color/monthColor"
+                android:id="@+id/month2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"/>
+        <TextView
+                android:gravity="center"
+                android:text="@string/month3"
+                android:textColor="@color/monthColor"
+                android:id="@+id/month3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"/>
+        <TextView
+                android:text="@string/month4"
+                android:gravity="center"
+                android:textColor="@color/monthColor"
+                android:id="@+id/month4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/graphLayout"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:layout_marginTop="142dp"
+            app:layout_constraintTop_toBottomOf="@+id/months"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/graphBackground"
+                android:layout_weight="0.5">
+
+            <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barchart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </FrameLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="0.5"
+                android:baselineAligned="false">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical"
+                    tools:ignore="NestedWeights">
+
+                <TextView
+                        android:id="@+id/expenditureTitle"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_margin="8dp"
+                        android:text="@string/expenditure"
+                        android:layout_width="match_parent"
+                        android:layout_weight="0.2"
+                        android:layout_height="20dp"/>
+
+                <ImageView
+                        android:layout_margin="8dp"
+                        android:scaleType="centerInside"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.4"
+                        app:srcCompat="@drawable/expenditure"
+                        android:tint="@color/colorPrimary"/>
+
+                <TextView
+                        android:id="@+id/expenditureDesc"
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center"
+                        android:text="@string/expenditure_descp"
+                        android:layout_weight="0.2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/growthTitle"
+                        android:layout_weight="0.2"
+                        android:textColor="@color/colorPrimary"
+                        android:gravity="center"
+                        android:layout_margin="8dp"
+                        android:text="@string/growth"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                <ImageView
+                        android:visibility="visible"
+                        android:layout_margin="8dp"
+                        android:scaleType="centerInside"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.4"
+                        android:tint="@color/colorPrimary"
+                        android:src="@drawable/growth"/>
+
+                <TextView
+                        android:id="@+id/growthDesc"
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center"
+                        android:text="@string/growth_descp"
+                        android:layout_weight="0.2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
